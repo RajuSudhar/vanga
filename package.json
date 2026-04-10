@@ -1,0 +1,69 @@
+{
+  "name": "vanga",
+  "version": "0.0.1",
+  "description": "Browser-first, P2P file sharing over WebRTC DataChannels with QR-paired Noise NK handshake",
+  "main": "dist/index.js",
+  "type": "module",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "clean": "rm -rf dist",
+    "rebuild": "pnpm run clean && pnpm run build",
+    "prepare": "husky",
+    "postinstall": "pnpm run build",
+    "dev:setup": "pnpm install && pnpm run build",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "format:all": "pnpm run format",
+    "lint": "eslint . --fix",
+    "lint:check": "eslint .",
+    "lint:md": "markdownlint-cli2 \"**/*.md\" \"#node_modules\" \"#dist\"",
+    "lint:md:fix": "markdownlint-cli2 --fix \"**/*.md\" \"#node_modules\" \"#dist\"",
+    "lint:all": "pnpm run lint:md:fix && pnpm run lint",
+    "typecheck": "tsc --noEmit",
+    "validate": "pnpm run format:all && pnpm run lint:all && pnpm run typecheck",
+    "validate:branch": "./scripts/validate-branch-name.sh",
+    "sync:locks": "./scripts/sync-lock-files.sh",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "webrtc",
+    "p2p",
+    "file-sharing",
+    "noise-protocol",
+    "qr",
+    "static-site",
+    "e2ee"
+  ],
+  "author": "Sudharsan R <sudharsan1616@outlook.com>",
+  "license": "GPL-3.0-or-later",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "bugs": {
+    "url": ""
+  },
+  "homepage": "",
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "@types/node": "^24.10.1",
+    "@typescript-eslint/eslint-plugin": "^8.48.0",
+    "@typescript-eslint/parser": "^8.48.0",
+    "eslint": "^9.39.1",
+    "eslint-import-resolver-typescript": "^4.4.4",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-unused-imports": "^4.3.0",
+    "husky": "^9.1.7",
+    "markdownlint-cli2": "^0.19.1",
+    "markdownlint-cli2-formatter-pretty": "^0.0.9",
+    "pnpm": "^10.33.0",
+    "prettier": "^3.7.2",
+    "prettier-plugin-sh": "^0.18.0",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.48.0"
+  }
+}
